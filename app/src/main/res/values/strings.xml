@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Movie Catalogue</string>
+    <string name="app_version">Version 2.0.0</string>
+    <string name="title_splash_screen">Splash Screen</string>
+    <string name="home">Home</string>
+    <string name="about">About</string>
+    <string name="placeholder_search">Search</string>
+    <string name="dicoding_academy">Dicoding Academy</string>
+    <string name="powered_by">Powered by:</string>
+    <string name="thanks_you">Thanks You</string>
+    <string name="developer">Nur Rahmat Dwi Riyanto</string>
+    <string name="email">nrahmatd@gmail.com</string>
+    <string name="movie_title_label">Movie Title</string>
+    <string name="movie_released_information_label">Released Information</string>
+    <string name="movie_original_language">Original Language</string>
+    <string name="movie_runtime_label">Runtime</string>
+    <string name="movie_genres_label">Genres</string>
+    <string name="movie_overview_label">Overview</string>
+    <string name="coming_soon">Coming Soon</string>
+</resources>
