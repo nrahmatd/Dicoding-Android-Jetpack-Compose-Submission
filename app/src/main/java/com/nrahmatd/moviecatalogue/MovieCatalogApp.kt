@@ -20,15 +20,17 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -185,7 +187,7 @@ fun BottomBar(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
-    BottomNavigation(
+    NavigationBar(
         modifier = modifier
     ) {
         val navigationItems = listOf(
@@ -200,9 +202,9 @@ fun BottomBar(
                 screen = Screen.About
             )
         )
-        BottomNavigation {
+        NavigationBar {
             navigationItems.map { item ->
-                BottomNavigationItem(
+                NavigationBarItem(
                     icon = {
                         Icon(imageVector = item.icon, contentDescription = item.title)
                     },
@@ -253,7 +255,9 @@ fun AboutScreen(modifier: Modifier = Modifier) {
         )
         Card(
             shape = RoundedCornerShape(16.dp),
-            backgroundColor = colorResource(id = R.color.colorAccent),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.secondaryContainer
+            ),
             modifier = modifier
                 .fillMaxWidth()
                 .padding(start = 6.dp, end = 6.dp)
@@ -303,7 +307,9 @@ fun AboutScreen(modifier: Modifier = Modifier) {
            Card(
                modifier = modifier
                    .size(100.dp),
-               backgroundColor = colorResource(id = R.color.colorAccent)
+               colors = CardDefaults.cardColors(
+                   containerColor = MaterialTheme.colorScheme.secondaryContainer
+               )
            ) {
                Image(
                    modifier = modifier
@@ -317,7 +323,9 @@ fun AboutScreen(modifier: Modifier = Modifier) {
                     .padding(start = 8.dp)
                     .fillMaxWidth()
                     .height(100.dp),
-                backgroundColor = colorResource(id = R.color.colorAccent)
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer
+                )
             ) {
                 Column {
                     Text(
@@ -439,7 +447,13 @@ fun DetailScreen(
                     .padding(8.dp)
                     .size(50.dp)
                     .clickable {
-                        Toast.makeText(context, context.resources.getString(R.string.coming_soon), Toast.LENGTH_LONG).show()
+                        Toast
+                            .makeText(
+                                context,
+                                context.resources.getString(R.string.coming_soon),
+                                Toast.LENGTH_LONG
+                            )
+                            .show()
                     }
             )
             Image(
@@ -449,7 +463,13 @@ fun DetailScreen(
                     .padding(8.dp)
                     .size(50.dp)
                     .clickable {
-                        Toast.makeText(context, context.resources.getString(R.string.coming_soon), Toast.LENGTH_LONG).show()
+                        Toast
+                            .makeText(
+                                context,
+                                context.resources.getString(R.string.coming_soon),
+                                Toast.LENGTH_LONG
+                            )
+                            .show()
                     }
             )
             Image(
@@ -459,7 +479,13 @@ fun DetailScreen(
                     .padding(8.dp)
                     .size(50.dp)
                     .clickable {
-                        Toast.makeText(context, context.resources.getString(R.string.coming_soon), Toast.LENGTH_LONG).show()
+                        Toast
+                            .makeText(
+                                context,
+                                context.resources.getString(R.string.coming_soon),
+                                Toast.LENGTH_LONG
+                            )
+                            .show()
                     }
             )
         }
