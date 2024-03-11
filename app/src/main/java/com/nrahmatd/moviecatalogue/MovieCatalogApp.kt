@@ -131,9 +131,10 @@ fun SplashScreen(navController: NavController) {
                 )
             )
     ) {
-        // Change the logo
         Image(
-            painter = painterResource(id = R.drawable.ic_the_movie_db),
+            modifier = Modifier
+                .size(250.dp),
+            painter = painterResource(id = R.drawable.ic_movie_catalogue_no_bg),
             contentDescription = stringResource(id = R.string.title_splash_screen)
         )
     }
@@ -245,14 +246,18 @@ fun AboutScreen(modifier: Modifier = Modifier) {
             .verticalScroll(rememberScrollState())
             .fillMaxSize()
     ) {
-        Image(
-            painter = painterResource(id =R.drawable.ic_the_movie_db),
-            contentDescription = null,
+        Card(
             modifier = modifier
-                .padding(top = 50.dp)
-                .size(100.dp)
-                .align(Alignment.CenterHorizontally)
-        )
+                .padding(top = 50.dp, bottom = 24.dp)
+                .align(Alignment.CenterHorizontally),
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_movie_catalogue),
+                contentDescription = null,
+                modifier = modifier
+                    .size(100.dp)
+            )
+        }
         Card(
             shape = RoundedCornerShape(16.dp),
             colors = CardDefaults.cardColors(
@@ -262,7 +267,11 @@ fun AboutScreen(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .padding(start = 6.dp, end = 6.dp)
         ) {
-            Column{
+            Column(
+                modifier = Modifier
+                    .height(100.dp),
+                verticalArrangement = Arrangement.Center
+            ) {
                 Text(
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
@@ -280,19 +289,11 @@ fun AboutScreen(modifier: Modifier = Modifier) {
                     modifier = modifier
                         .fillMaxWidth()
                 )
-                Text(
-                    fontStyle = FontStyle.Italic,
-                    color = Color.White,
-                    text = stringResource(id = R.string.dicoding_academy),
-                    textAlign = TextAlign.Center,
-                    modifier = modifier
-                        .fillMaxWidth()
-                )
             }
         }
 
         Text(
-            text = stringResource(id = R.string.powered_by),
+            text = stringResource(id = R.string.developed_by),
             textAlign = TextAlign.Center,
             modifier = modifier
                 .fillMaxWidth()
@@ -304,19 +305,18 @@ fun AboutScreen(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .padding(start = 6.dp, end = 6.dp)
         ) {
-           Card(
-               modifier = modifier
-                   .size(100.dp),
-               colors = CardDefaults.cardColors(
-                   containerColor = MaterialTheme.colorScheme.secondaryContainer
-               )
-           ) {
-               Image(
-                   modifier = modifier
-                       .size(85.dp),
-                   painter = painterResource(id = R.drawable.profile),
-                   contentDescription = null)
-           }
+            Card(
+                modifier = modifier
+                    .size(100.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer
+                )
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.profile),
+                    contentDescription = null
+                )
+            }
 
             Card(
                 modifier = modifier
@@ -347,7 +347,7 @@ fun AboutScreen(modifier: Modifier = Modifier) {
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold,
             fontSize = 25.sp,
-            text = stringResource(id = R.string.thanks_you),
+            text = stringResource(id = R.string.dataset_powered_by),
             modifier = modifier
                 .padding(top = 30.dp)
                 .fillMaxWidth()
@@ -357,7 +357,7 @@ fun AboutScreen(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .padding(10.dp)
                 .align(Alignment.CenterHorizontally),
-            painter = painterResource(id = R.drawable.dicoding),
+            painter = painterResource(id = R.drawable.ic_the_movie_db),
             contentDescription = null
         )
     }
@@ -507,6 +507,14 @@ fun DetailScreen(
             modifier = modifier.padding(8.dp),
             text = movie.descMovie
         )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SplashPreview() {
+    MovieCatalogueTheme {
+        SplashScreen(navController = rememberNavController())
     }
 }
 
